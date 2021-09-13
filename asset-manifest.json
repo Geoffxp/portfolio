@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.ee890b9a.chunk.css",
-    "main.js": "/portfolio/static/js/main.06091dbd.chunk.js",
-    "main.js.map": "/portfolio/static/js/main.06091dbd.chunk.js.map",
+    "main.css": "/portfolio/static/css/main.63afa653.chunk.css",
+    "main.js": "/portfolio/static/js/main.ab884a74.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.ab884a74.chunk.js.map",
     "runtime-main.js": "/portfolio/static/js/runtime-main.8c343905.js",
     "runtime-main.js.map": "/portfolio/static/js/runtime-main.8c343905.js.map",
     "static/js/2.170aada8.chunk.js": "/portfolio/static/js/2.170aada8.chunk.js",
     "static/js/2.170aada8.chunk.js.map": "/portfolio/static/js/2.170aada8.chunk.js.map",
     "index.html": "/portfolio/index.html",
-    "static/css/main.ee890b9a.chunk.css.map": "/portfolio/static/css/main.ee890b9a.chunk.css.map",
+    "static/css/main.63afa653.chunk.css.map": "/portfolio/static/css/main.63afa653.chunk.css.map",
     "static/js/2.170aada8.chunk.js.LICENSE.txt": "/portfolio/static/js/2.170aada8.chunk.js.LICENSE.txt",
     "static/media/sq-github.138944ee.png": "/portfolio/static/media/sq-github.138944ee.png",
     "static/media/sq-linkedin.74b0a4b2.png": "/portfolio/static/media/sq-linkedin.74b0a4b2.png"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.8c343905.js",
     "static/js/2.170aada8.chunk.js",
-    "static/css/main.ee890b9a.chunk.css",
-    "static/js/main.06091dbd.chunk.js"
+    "static/css/main.63afa653.chunk.css",
+    "static/js/main.ab884a74.chunk.js"
   ]
 }
