@@ -1,13 +1,82 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+h1 {
+    font-size: 60pt;
+}
+h2 {
+    font-size: 40pt;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+img {
+    padding: 5px;
+    filter: grayscale(100%);
+    width: 100px;
+}
+
+.fade {
+    animation: fadeIn linear 1.75s;
+    animation-fill-mode: forwards;
+  }
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    75% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+@keyframes slidetop {
+    from {
+      margin-top: -20%;
+    }
+    0% {opacity:0}
+    100% {opacity:1}
+  }
+
+  @keyframes slidetopwait {
+    from {
+      margin-top: -100%;
+    }
+    0% {opacity:0; margin-top: -20%;}
+    50% {opacity:0; margin-top: -20%;}
+    100% {opacity:1}
+  }
+
+.slide-top-text {
+    animation-duration: 1.65s;
+    animation-name: slidetopwait;
+}
+.slide-top-wait {
+    animation-duration: 1s;
+    animation-name: slidetopwait;
+}
+.slide-top {
+    animation-duration: 1s;
+    animation-name: slidetop;
+  }
+  
+.line {
+    color: white;
+    font-size: 48pt;
+    margin-top: -12px;
+    margin-right: 25px;
+    letter-spacing: -10px;
+}
+.smol {
+    display: none;
+}
+
+@media (max-width: 1280px) {
+    .beeg {
+        display: none;
+    }
+    .smol {
+        display: block;
+    }
+    h1 {
+        margin-bottom: 0;
+    }
+    h3 {
+        margin-bottom: 50px;
+    }
+    .line {
+        display: none;
+    }
 }

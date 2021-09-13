@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import LeftHand from './LeftHand/LeftHand';
+import RightHand from "./RightHand/RightHand";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="beeg">
+        <div className="row pt-5">
+          <div className="col-6 text-white">
+            <LeftHand />
+          </div>
+          <div className="col-6 text-center text-white">
+            <RightHand />
+          </div>
+        </div>
+      </div>
+      <div className="smol">
+        <div className="text-white text-center">
+          <LeftHand />
+        </div>
+        <div className="text-center text-white">
+          <RightHand />
+        </div>
+      </div>
+    </>
   );
 }
 

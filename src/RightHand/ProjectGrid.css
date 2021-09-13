@@ -1,0 +1,28 @@
+a {
+    padding-top: 10px;
+    text-decoration: none;
+}
+
+.project-box {
+    cursor: pointer;
+    width: 100%;
+    height: 250px;
+    background-color: rgb(22, 22, 22);
+    opacity: 70%;
+}
+
+.grow { 
+    transition: all .2s ease-in-out; 
+}
+.grow:hover { 
+    transform: scale(1.1); 
+    opacity: 100%;
+}
+
+#outer {
+    display: flex;
+  }
+  
+  #inner {
+    margin: auto;
+  }
