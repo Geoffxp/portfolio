@@ -10,7 +10,7 @@ export default function ProjectGrid() {
         },
         {
             name: "Pomodoro Timer",
-            url: "https://github.com/Geoffxp/pomodoro-timer",
+            url: "https://geoffxp.github.io/pomodoro-timer/",
             description: "This is a time managemet application made strictly with React and Twitter Bootstrap. Makes use of useState to manage time increments and timer section changes."
         },
         {
