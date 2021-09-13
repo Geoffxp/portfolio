@@ -17,25 +17,25 @@ export default function Contact() {
                         <div className="liner"></div>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row"  onClick={sendEmail}>
-                        <img src={email} />
+                        <img src={email} alt="email"/>
                         <div id="inner">
                             <p className="lead">geoffxp@gmail.com</p>
                         </div>
-                        <img src={email} />
+                        <img src={email} alt="email"/>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://github.com/Geoffxp", "_blank")}>
-                        <img src={github} />
+                        <img src={github} alt="github"/>
                         <div id="inner">
                             <p className="lead">github.com/Geoffxp</p>
                         </div>
-                        <img src={github} />
+                        <img src={github} alt="github"/>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://www.linkedin.com/in/geoffrey-jarman/", "_blank")}>
-                        <img src={linkedin} />
+                        <img src={linkedin} alt="linkedIn"/>
                         <div id="inner">
                             <p className="lead">linkedin.com/in/geoffrey-jarman</p>
                         </div>
-                        <img src={linkedin} />
+                        <img src={linkedin} alt="linkedIn"/>
                     </div>
                 </div>
             </div>
@@ -44,17 +44,17 @@ export default function Contact() {
                     <h2 className="mb-4">Contact</h2>
                     <div id="outer" className="container card dark d-flex flex-row">
                         <div id="inner">
-                            <img src={email} />
+                            <img src={email} alt="email"/>
                         </div>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row">
                         <div id="inner">
-                            <img src={github} />
+                            <img src={github} alt="github"/>
                         </div>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row">
                         <div id="inner">
-                            <img src={linkedin} />
+                            <img src={linkedin} alt="linkedIn"/>
                         </div>
                     </div>
                 </div>
