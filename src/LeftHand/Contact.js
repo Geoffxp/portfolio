@@ -41,7 +41,11 @@ export default function Contact() {
             </div>
             <div className="smol">
                 <div className="fade">
-                    <h2 className="mb-4">Contact</h2>
+                    <div className="d-flex">
+                        <div className="liner"></div>
+                        <h2 className="mb-4 ml-3 mr-3">Contact</h2>
+                        <div className="liner"></div>
+                    </div>
                     <div id="outer" className="container card dark d-flex flex-row">
                         <div id="inner">
                             <img src={email} alt="email"/>

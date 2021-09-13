@@ -24,7 +24,7 @@ export default function ProjectGrid() {
         <div className="container">
             {projects && projects.map((project) => {
                 return (
-                    <div id="outer" className="col-12 project-box grow m-3"
+                    <div id="outer" className="col-12 project-box grow mb-3 mt-3"
                         onClick={()=> window.open(`${project.url}`, "_blank")}>
                         <div id="inner">
                             <h3 className="pb-4">{project.name}</h3>

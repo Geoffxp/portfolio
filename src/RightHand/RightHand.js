@@ -12,7 +12,11 @@ export default function LeftHand() {
         </div>
         <div className="smol">
             <div className="container mt-5 slide-top-text">
-                <h2 className="mb-5">Projects</h2>
+                <div className="d-flex">
+                    <div className="liner"></div>
+                    <h2 className="ml-3 mr-3 text-white">Projects</h2>
+                    <div className="liner"></div>
+                </div>
                 <ProjectGrid />
                 <Contact />
             </div>

@@ -1,7 +1,9 @@
 h1 {
-    font-size: 60pt;
+    font-size: 53pt;
+    font-family: Montserrat;
 }
 h2 {
+    font-family: Montserrat;
     font-size: 40pt;
 }
 
@@ -64,6 +66,10 @@ img {
 }
 
 @media (max-width: 1280px) {
+    body {
+        width:100%;
+        margin: auto;
+    }
     .beeg {
         display: none;
     }
