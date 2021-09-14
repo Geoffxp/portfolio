@@ -13,10 +13,3 @@
     width: 150px;
     border-radius: 50%;
 }
-
-@media (max-width: 575px) {
-    .round {
-        position: absolute;
-        display: none;
-    }
-}
