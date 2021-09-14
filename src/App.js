@@ -14,7 +14,7 @@ function App() {
           </div>
         </div>
         <div className="col-6 offset-1 text-white">
-          <h1>&#125;</h1>
+          <h1 className="fade">&#125;</h1>
         </div>
       </div>
       <div className="smol">
