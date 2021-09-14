@@ -7,14 +7,15 @@ export default function About() {
             <div className="d-flex">
                 <div className="slide-top-text col-8">
                     <p className="lead">I am a full stack web developer living in Austin, TX.
-                                        I have been coding for many years and I have loved
+                                        I have been coding for many years and have loved
                                         every minute of it.
-                                        My experience at College and Thinkful have allowed me
+                                        My experience at Green River College and Thinkful have allowed me
                                         to work on many projects and develop many problem solving 
                                         skills.
-                                        I know React, Node, Express, PostGres, and Knex and with
-                                        these tools I can make full-stack web applications start 
-                                        finish.</p>
+                                        I am proficient in React, Node, Express, PostGres, and 
+                                        Knex and with these tools I can make full-stack web 
+                                        applications start to finish. I am currently learning TypeScript,
+                                        Next.js, and Angular.</p>
                 </div>
                 <div id="outer" className="col-4">
                     <div id="inner" className="dark d-flex flex-row">
@@ -27,14 +28,15 @@ export default function About() {
             <div className="d-flex">
                 <div className="slide-top-text">
                     <p className="lead">I am a full stack web developer living in Austin, TX.
-                                        I have been coding for many years and I have loved
+                                        I have been coding for many years and have loved
                                         every minute of it.
-                                        My experience at College and Thinkful have allowed me
+                                        My experience at Green River College and Thinkful have allowed me
                                         to work on many projects and develop many problem solving 
                                         skills.
-                                        I know React, Node, Express, PostGres, and Knex and with
-                                        these tools I can make full-stack web applications start 
-                                        finish.</p>
+                                        I am proficient in React, Node, Express, PostGres, and 
+                                        Knex and with these tools I can make full-stack web 
+                                        applications start to finish. I am currently learning TypeScript,
+                                        Next.js, and Angular</p>
                 </div>
             </div>
         </div>
