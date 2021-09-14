@@ -2,6 +2,7 @@ import React from "react";
 import email from "../icons/sq-email.png"
 import github from "../icons/sq-github.png";
 import linkedin from "../icons/sq-linkedin.png";
+
 import "./Contact.css";
 
 export default function Contact() {
@@ -9,7 +10,7 @@ export default function Contact() {
         window.location = "mailto:geoffxp@gmail.com";
     }
     return (
-        <div className="mt-5">
+        <div className="mt-4">
             <div className="beeg">
                 <div className="fade">
                     <div className="d-flex">
@@ -17,23 +18,23 @@ export default function Contact() {
                         <div className="liner"></div>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row"  onClick={sendEmail}>
-                        <img src={email} alt="email"/>
+                        <img src={email} alt="email" style={{filter: "grayscale(100) brightness(240%)"}}/>
                         <div id="inner">
-                            <p className="lead">geoffxp@gmail.com</p>
+                            <p className="lead">E M A I L</p>
                         </div>
-                        <img src={email} alt="email"/>
+                        <img src={email} alt="email" style={{filter: "grayscale(100) brightness(240%)"}}/>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://github.com/Geoffxp", "_blank")}>
-                        <img src={github} alt="github"/>
+                        <img src={github} alt="github" style={{filter: "invert(1) brightness(40%)"}}/>
                         <div id="inner">
-                            <p className="lead">github.com/Geoffxp</p>
+                            <p className="lead">G I T H U B</p>
                         </div>
-                        <img src={github} alt="github"/>
+                        <img src={github} alt="github" style={{filter: "invert(1) brightness(40%)"}}/>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://www.linkedin.com/in/geoffrey-jarman/", "_blank")}>
                         <img src={linkedin} alt="linkedIn"/>
                         <div id="inner">
-                            <p className="lead">linkedin.com/in/geoffrey-jarman</p>
+                            <p className="lead">L I N K E D I N</p>
                         </div>
                         <img src={linkedin} alt="linkedIn"/>
                     </div>
@@ -48,12 +49,12 @@ export default function Contact() {
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row">
                         <div id="inner">
-                            <img src={email} alt="email"/>
+                            <img src={email} alt="email" style={{filter: "grayscale(100) brightness(240%)"}}/>
                         </div>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row">
                         <div id="inner">
-                            <img src={github} alt="github"/>
+                            <img src={github} alt="github" style={{filter: "invert(1) brightness(40%)"}}/>
                         </div>
                     </div>
                     <div id="outer" className="container card dark d-flex flex-row">

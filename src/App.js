@@ -9,9 +9,12 @@ function App() {
           <div className="col-6 text-white">
             <LeftHand />
           </div>
-          <div className="col-6 text-center text-white">
+          <div className="col-6 pt-5 text-center text-white">
             <RightHand />
           </div>
+        </div>
+        <div className="col-6 offset-1 text-white">
+          <h1>&#125;</h1>
         </div>
       </div>
       <div className="smol">
@@ -22,6 +25,8 @@ function App() {
           <RightHand />
         </div>
       </div>
+      
+      
     </>
   );
 }

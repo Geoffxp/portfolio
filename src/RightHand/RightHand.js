@@ -2,15 +2,15 @@ import React from "react";
 import Contact from "../LeftHand/Contact";
 import ProjectGrid from "./ProjectGrid";
 
-export default function LeftHand() {
+export default function RightHand() {
     return (
         <>
         <div className="beeg">
-            <div className="container col-md-8 offset-md-2 slide-top-text">
+            <div style={{marginTop: "75px"}} className="container col-md-8 offset-md-2 slide-top-text">
                 <ProjectGrid />
             </div>
         </div>
-        <div className="smol">
+        <div className="smol" >
             <div className="container mt-5 slide-top-text">
                 <div className="d-flex">
                     <div className="liner"></div>
@@ -21,7 +21,6 @@ export default function LeftHand() {
                 <Contact />
             </div>
         </div>
-        
         </>
     )
 }

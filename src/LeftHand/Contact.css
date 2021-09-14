@@ -9,8 +9,14 @@
     background-color: black;
 }
 
-.liner {
-    width: 100%;
-    height: 47px;
-    border-bottom: 5px solid white;
+.round {
+    width: 150px;
+    border-radius: 50%;
+}
+
+@media (max-width: 575px) {
+    .round {
+        position: absolute;
+        display: none;
+    }
 }
