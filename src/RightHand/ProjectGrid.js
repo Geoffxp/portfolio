@@ -15,8 +15,8 @@ export default function ProjectGrid() {
         },
         {
             name: "We Love Movies",
-            url: "https://github.com/Geoffxp/weLoveMovies",
-            description: "This is a backend application that uses a database to pull and store movie and theater titles. Makes use of tables with complex interactions and presents data in an understandable way."
+            url: "https://secret-everglades-27097.herokuapp.com/",
+            description: "This is a full-stack application that uses a database to pull and store movie and theater titles. Makes use of tables with complex interactions and presents data in an understandable way."
         },
     ]
 
