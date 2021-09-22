@@ -3,7 +3,8 @@ import About from "./About";
 import Contact from "./Contact";
 import Header from "./Header";
 
-export default function LeftHand() {
+export default function LeftHand({ about, projects, contact }) {
+    
     return (
         <>
             <div className="beeg">
@@ -15,7 +16,7 @@ export default function LeftHand() {
             </div>
         <div className="smol">
             <div className="container">
-                    <Header />
+                    <Header about={about} projects={projects} contact={contact} />
                     <About />
                 </div>
         </div>

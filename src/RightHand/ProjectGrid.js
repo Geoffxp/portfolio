@@ -2,7 +2,12 @@ import React from "react";
 import "./ProjectGrid.css";
 
 export default function ProjectGrid() {
-    const projects = [
+    const projectList = [
+        {
+            name: "Brick Breaker",
+            url: "https://brick-breaker-iota.vercel.app/",
+            description: "Javascript remake of the classic Atari game Breakout featuring a soundtrack created by my wife and me."
+        },
         {
             name: "Periodic Tables",
             url: "https://polar-depths-52652.herokuapp.com/dashboard",
@@ -21,18 +26,39 @@ export default function ProjectGrid() {
     ]
 
     return (
-        <div className="container">
-            {projects && projects.map((project) => {
-                return (
-                    <div id="outer" className="col-12 project-box grow mb-3 mt-3"
-                        onClick={()=> window.open(`${project.url}`, "_blank")}>
-                        <div id="inner">
-                            <h3 className="pb-4">{project.name}</h3>
-                            <p>{project.description}</p>
-                        </div>
-                    </div>
-                )
-            })}
-        </div>
+        <>
+            <div className="beeg">
+                <div className="projects scroller">
+                    {projectList && projectList.map((project) => {
+                        return (
+                            <div id="outer" className="col-12 project-box grow mb-3 mt-3"
+                                onClick={()=> window.open(`${project.url}`, "_blank")}>
+                                <div id="inner">
+                                    <h3 className="pb-4">{project.name}</h3>
+                                    <p>{project.description}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+            <div className="smol">
+                <div>
+                    {projectList && projectList.map((project) => {
+                        return (
+                            <div id="outer" className="col-12 project-box grow mb-3 mt-3"
+                                onClick={()=> window.open(`${project.url}`, "_blank")}>
+                                <div id="inner">
+                                    <h3 className="pb-4">{project.name}</h3>
+                                    <p>{project.description}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        
+        </>
+        
     )
 }

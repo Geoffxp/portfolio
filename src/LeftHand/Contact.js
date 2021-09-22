@@ -5,7 +5,9 @@ import linkedin from "../icons/sq-linkedin.png";
 
 import "./Contact.css";
 
-export default function Contact() {
+
+export default function Contact({ contact }) {
+
     function sendEmail() {
         window.location = "mailto:geoffxp@gmail.com";
     }
@@ -40,7 +42,7 @@ export default function Contact() {
                     </div>
                 </div>
             </div>
-            <div className="smol">
+            <div ref={contact} className="smol">
                 <div className="fade">
                     <div className="d-flex">
                         <div className="liner"></div>

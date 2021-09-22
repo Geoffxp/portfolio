@@ -1,7 +1,11 @@
+import { useRef } from 'react';
 import LeftHand from './LeftHand/LeftHand';
 import RightHand from "./RightHand/RightHand";
 
 function App() {
+  const about = useRef(null);
+  const projects = useRef(null);
+  const contact = useRef(null);
   return (
     <>
       <div className="beeg">
@@ -13,17 +17,15 @@ function App() {
             <RightHand />
           </div>
         </div>
-        <div className="col-6 offset-1 text-white">
-          <h1 className="fade">&#125;</h1>
-        </div>
       </div>
       <div className="smol">
         <div className="text-white text-center">
-          <LeftHand />
+          <LeftHand about={about} projects={projects} contact={contact} />
         </div>
         <div className="text-center text-white">
-          <RightHand />
+          <RightHand projects={projects} contact={contact}  />
         </div>
+        <div id="outer" className="spacer"><p id="inner"className="text-white lead">Thank you</p></div>
       </div>
       
       

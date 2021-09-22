@@ -2,6 +2,36 @@ a {
     padding-top: 10px;
     text-decoration: none;
 }
+/* width */
+.scroller::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  .scroller::-webkit-scrollbar-track {
+    visibility: hidden;
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  .scroller::-webkit-scrollbar-thumb {
+    visibility: hidden;
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  .scroller::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  .scroller:hover::-webkit-scrollbar-thumb {
+    visibility:visible;
+}
+.projects {
+    padding: 10px 30px 0px 20px;
+    height: 715px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
 
 .project-box {
     cursor: pointer;
