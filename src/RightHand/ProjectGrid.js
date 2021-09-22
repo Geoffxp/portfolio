@@ -31,7 +31,7 @@ export default function ProjectGrid() {
                 <div className="projects scroller">
                     {projectList && projectList.map((project) => {
                         return (
-                            <div id="outer" className="col-12 project-box grow mb-3 mt-3"
+                            <div key={project.name} id="outer" className="col-12 project-box grow mb-3 mt-3"
                                 onClick={()=> window.open(`${project.url}`, "_blank")}>
                                 <div id="inner">
                                     <h3 className="pb-4">{project.name}</h3>
@@ -46,7 +46,7 @@ export default function ProjectGrid() {
                 <div>
                     {projectList && projectList.map((project) => {
                         return (
-                            <div id="outer" className="col-12 project-box grow mb-3 mt-3"
+                            <div key={project.name} id="outer" className="col-12 project-box grow mb-3 mt-3"
                                 onClick={()=> window.open(`${project.url}`, "_blank")}>
                                 <div id="inner">
                                     <h3 className="pb-4">{project.name}</h3>

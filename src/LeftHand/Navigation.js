@@ -7,11 +7,11 @@ export default function Navigation({ about, projects, contact }) {
     return (
         <>
             <ul>
-                <li onClick={() => executeScroll(about)}>ABOUT</li>
+                <li key="about" onClick={() => executeScroll(about)}>ABOUT</li>
                 <p>|</p>
-                <li onClick={() => executeScroll(projects)}>PROJECTS</li>
+                <li key="projects" onClick={() => executeScroll(projects)}>PROJECTS</li>
                 <p>|</p>
-                <li onClick={() => executeScroll(contact)}>CONTACT</li>
+                <li key="contact" onClick={() => executeScroll(contact)}>CONTACT</li>
             </ul>
         </>
     )
