@@ -49,17 +49,17 @@ export default function Contact({ contact }) {
                         <h2 className="mb-4 ml-3 mr-3">Contact</h2>
                         <div className="liner"></div>
                     </div>
-                    <div id="outer" className="container card dark d-flex flex-row">
+                    <div id="outer" className="container card dark d-flex flex-row" onClick={sendEmail}>
                         <div id="inner">
                             <img src={email} alt="email" style={{filter: "grayscale(100) brightness(240%)"}}/>
                         </div>
                     </div>
-                    <div id="outer" className="container card dark d-flex flex-row">
+                    <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://github.com/Geoffxp", "_blank")}>
                         <div id="inner">
                             <img src={github} alt="github" style={{filter: "invert(1) brightness(40%)"}}/>
                         </div>
                     </div>
-                    <div id="outer" className="container card dark d-flex flex-row">
+                    <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://www.linkedin.com/in/geoffrey-jarman/", "_blank")}>
                         <div id="inner">
                             <img src={linkedin} alt="linkedIn"/>
                         </div>
