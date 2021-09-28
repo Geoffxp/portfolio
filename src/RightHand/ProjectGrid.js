@@ -14,6 +14,11 @@ export default function ProjectGrid() {
             description: "This full-stack application allows the users to create and store reservations, seat reservations at tables, and keep track of the status of everything in your restaurant."
         },
         {
+            name: "AstroDisastro",
+            url: "https://astro-disatro-js.vercel.app/",
+            description: "Survival game orginally coded in Java, translated to JavaScript. A very addicting work in progress with a lot of potential. My high score is 1400, I bet you can't beat me!"
+        },
+        {
             name: "Pomodoro Timer",
             url: "https://geoffxp.github.io/pomodoro-timer/",
             description: "This is a time managemet application made strictly with React and Twitter Bootstrap. Makes use of useState to manage time increments and timer section changes."
