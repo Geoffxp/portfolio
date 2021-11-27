@@ -28,7 +28,8 @@ function App() {
     })
     const ctx = canvas.getContext("2d");
     const guys = [];
-    for (let i = 0; i < 3000; i++) {
+    const limit = window.innerWidth > 1280 ? 3000 : 500;
+    for (let i = 0; i < limit; i++) {
       const randx = Math.random() * document.body.clientWidth;
       const randy = Math.random() * document.body.clientHeight;
       const randAngle = Math.random() * 360;
