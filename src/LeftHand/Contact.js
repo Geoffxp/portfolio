@@ -1,67 +1,80 @@
-import React from "react";
+import React, { useRef } from "react";
 import email from "../icons/sq-email.png"
 import github from "../icons/sq-github.png";
 import linkedin from "../icons/sq-linkedin.png";
+import headshot from "../icons/headshot.png";
+import headshotOutline from "../icons/TtDZdu01.svg";
 
 import "./Contact.css";
 
 
 export default function Contact({ contact }) {
-
+    const cover = useRef();
+    const outline = useRef();
+    const fill = useRef();
+    const show = () => {
+        outline.current.style.opacity = 0;
+        fill.current.style.opacity = 1;
+        cover.current.style.width = "250px"
+    }
+    const hide = () => {
+        outline.current.style.opacity = 1;
+        fill.current.style.opacity = 0;
+        cover.current.style.width = "0px"
+    }
     function sendEmail() {
         window.location = "mailto:geoffxp@gmail.com";
     }
     return (
         <div className="mt-4">
             <div className="beeg">
-                <div className="fade">
-                    <div className="d-flex">
-                        <h2 className="mb-4 mr-3">Contact</h2>
-                        <div className="liner"></div>
-                    </div>
-                    <div id="outer" className="container card dark d-flex flex-row"  onClick={sendEmail}>
-                        <img src={email} alt="email" style={{filter: "grayscale(100) brightness(240%)"}}/>
-                        <div id="inner">
-                            <p className="lead">E M A I L</p>
+                <div className="fade" style={{width: "100%", position: "absolute", bottom: 0, left: 0}}>
+                    <div className="d-flex" style={{ alignItems: "center", height: "100px"}} onMouseLeave={hide}>
+                        <div id="outer">
+                            <div id="inner" className="dark d-flex flex-row" onMouseEnter={show}>
+                                <img id="fill-image" ref={fill} style={{color: "white", border: "2px solid white"}} className="round" src={headshot} alt="headshot"/>
+                            </div>
+                            <div id="inner" className="dark d-flex flex-row" onMouseEnter={show}>
+                                <img id="outline-image" ref={outline} style={{color: "white", border: "2px solid white"}} className="round" src={headshotOutline} alt="headshot"/>
+                            </div>
                         </div>
-                        <img src={email} alt="email" style={{filter: "grayscale(100) brightness(240%)"}}/>
-                    </div>
-                    <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://github.com/Geoffxp", "_blank")}>
-                        <img src={github} alt="github" style={{filter: "invert(1) brightness(40%)"}}/>
-                        <div id="inner">
-                            <p className="lead">G I T H U B</p>
+                        <div ref={cover} style={{position: "relative"}} style={{ marginLeft: "calc(5% + 105px)", display: "flex", alignItems: "center", width: "0px", overflow: "hidden", transition: "all 0.5s"}}>
+                            <div class="lines">
+                                <div class="up-line"></div>
+                                <div class="side-line"></div>
+                                <div class="down-line"></div>
+                            </div>
+                            <div style={{marginBottom: "8px", marginLeft: "-10px", textAlign: "right"}}>
+                                <p style={{cursor:"pointer"}} class="underline" onClick={sendEmail}>Email</p>
+                                <p style={{cursor:"pointer"}}  class="underline" onClick={() => window.open("https://github.com/Geoffxp", "_blank")}>Github</p>
+                                <p style={{cursor:"pointer"}}  class="underline" onClick={() => window.open("https://www.linkedin.com/in/geoffrey-jarman/", "_blank")}>LinkedIn</p>
+                            </div>
                         </div>
-                        <img src={github} alt="github" style={{filter: "invert(1) brightness(40%)"}}/>
-                    </div>
-                    <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://www.linkedin.com/in/geoffrey-jarman/", "_blank")}>
-                        <img src={linkedin} alt="linkedIn"/>
-                        <div id="inner">
-                            <p className="lead">L I N K E D I N</p>
-                        </div>
-                        <img src={linkedin} alt="linkedIn"/>
                     </div>
                 </div>
             </div>
-            <div ref={contact} className="smol">
-                <div className="fade">
-                    <div className="d-flex">
-                        <div className="liner"></div>
-                        <h2 className="mb-4 ml-3 mr-3">Contact</h2>
-                        <div className="liner"></div>
-                    </div>
-                    <div id="outer" className="container card dark d-flex flex-row" onClick={sendEmail}>
-                        <div id="inner">
-                            <img src={email} alt="email" style={{filter: "grayscale(100) brightness(240%)"}}/>
+            <div ref={contact} className="smol" style={{position:"relative"}}>
+                <div className="fade" style={{ position: "absolute", bottom: "-115px", left: "50px"}}>
+                    <div className="d-flex" style={{ alignItems: "center", height: "100px"}} onMouseLeave={hide}>
+                        <div id="outer">
+                            <div id="inner" className="dark d-flex flex-row" onClick={show}>
+                                <img id="fill-image" ref={fill} style={{color: "white", border: "2px solid white"}} className="round" src={headshot} alt="headshot"/>
+                            </div>
+                            <div id="inner" className="dark d-flex flex-row" onClick={show}>
+                                <img id="outline-image" ref={outline} style={{color: "white", border: "2px solid white"}} className="round" src={headshotOutline} alt="headshot"/>
+                            </div>
                         </div>
-                    </div>
-                    <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://github.com/Geoffxp", "_blank")}>
-                        <div id="inner">
-                            <img src={github} alt="github" style={{filter: "invert(1) brightness(40%)"}}/>
-                        </div>
-                    </div>
-                    <div id="outer" className="container card dark d-flex flex-row" onClick={() => window.open("https://www.linkedin.com/in/geoffrey-jarman/", "_blank")}>
-                        <div id="inner">
-                            <img src={linkedin} alt="linkedIn"/>
+                        <div ref={cover} style={{position: "relative"}} style={{ marginLeft: "calc(5% + 105px)", display: "flex", alignItems: "center", width: "0px", overflow: "hidden", transition: "all 0.5s"}}>
+                            <div class="lines">
+                                <div class="up-line"></div>
+                                <div class="side-line"></div>
+                                <div class="down-line"></div>
+                            </div>
+                            <div style={{marginBottom: "8px", marginLeft: "-10px", textAlign: "right"}}>
+                                <p style={{cursor:"pointer"}} class="underline" onClick={sendEmail}>Email</p>
+                                <p style={{cursor:"pointer"}}  class="underline" onClick={() => window.open("https://github.com/Geoffxp", "_blank")}>Github</p>
+                                <p style={{cursor:"pointer"}}  class="underline" onClick={() => window.open("https://www.linkedin.com/in/geoffrey-jarman/", "_blank")}>LinkedIn</p>
+                            </div>
                         </div>
                     </div>
                 </div>

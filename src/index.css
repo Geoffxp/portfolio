@@ -43,8 +43,27 @@ img {
     padding: 5px;
     filter: grayscale(100%);
     width: 100px;
+    position:absolute;
+    bottom: 5%;
+    left:5%;
+    transition: all 0.5s;
 }
-
+@keyframes color {
+    0% {
+        filter: grayscale(0%)
+    }
+    100% {
+        filter: grayscale(100%)
+    }
+}
+@keyframes uncolor {
+    0% {
+        filter: grayscale(50%)
+    }
+    100% {
+        filter: grayscale(0%)
+    }
+}
 .fade {
     animation: fadeIn linear 1.75s;
     animation-fill-mode: forwards;

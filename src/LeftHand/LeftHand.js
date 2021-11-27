@@ -7,10 +7,13 @@ export default function LeftHand({ about, projects, contact }) {
     
     return (
         <>
-            <div className="beeg">
-                <div className="container col-12 offset-md-2">
+            <div style={{height: "100vh", position: "sticky", top: 0, padding: "5%", paddingTop: "25%"}} className="beeg">
+                <div style={{ height: "100%" }} className="container col-12">
+                    <div>
                     <Header />
                     <About />
+                    </div>
+                    
                     <Contact />
                 </div>
             </div>

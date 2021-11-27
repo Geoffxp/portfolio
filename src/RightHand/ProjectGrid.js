@@ -33,10 +33,10 @@ export default function ProjectGrid() {
     return (
         <>
             <div className="beeg">
-                <div className="projects scroller">
+                <div style={{ marginTop: "25px", marginRight: "0px"}}className="projects">
                     {projectList && projectList.map((project) => {
                         return (
-                            <div key={project.name} id="outer" className="col-12 project-box grow mb-3 mt-3"
+                            <div key={project.name} id="outer" className="col-12 project-box grow mb-3"
                                 onClick={()=> window.open(`${project.url}`, "_blank")}>
                                 <div id="inner">
                                     <h3 className="pb-4">{project.name}</h3>

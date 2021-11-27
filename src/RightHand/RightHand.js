@@ -6,7 +6,7 @@ export default function RightHand({ projects, contact }) {
     return (
         <>
         <div className="beeg">
-            <div style={{marginTop: "75px"}} className="container col-md-8 offset-md-2 slide-top-text">
+            <div className="slide-top-text">
                 <ProjectGrid />
             </div>
         </div>
