@@ -2,8 +2,10 @@
   "name": "website",
   "homepage": "https://geoffxp.github.io/portfolio/",
   "version": "0.1.0",
-  "npm": "8.1.0",
-  "node": "16.13.0",
+  "engines": {
+    "npm": "8.1.0",
+    "node": "16.13.0"
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
