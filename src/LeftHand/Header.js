@@ -1,5 +1,4 @@
 import React from "react";
-import headshot from "../icons/headshot.png"
 import Navigation from "./Navigation";
 
 export default function Header({ about, projects, contact }) {

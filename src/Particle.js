@@ -20,8 +20,14 @@ export default class Particle {
     }
     update() {
         const distance = Math.sqrt((this.x - this.mouseX) ** 2 + (this.y - this.mouseY) ** 2);
-        if (this.x > window.innerWidth || this.x < 0) this.xSpeed = -this.xSpeed;
-        if (this.y > window.innerHeight || this.y < 0) this.ySpeed = -this.ySpeed;
+        if (window.innerWidth > 1280) {
+            if (this.x > window.innerWidth || this.x < 0) this.xSpeed = -this.xSpeed;
+            if (this.y > window.innerHeight || this.y < 0) this.ySpeed = -this.ySpeed;
+        } else {
+            if (this.x > document.body.scrollWidth || this.x < 0) this.xSpeed = -this.xSpeed;
+            if (this.y > document.body.scrollHeight || this.y < 0) this.ySpeed = -this.ySpeed;
+        }
+        
         if (distance < 100) this.turn();
         
         this.angle = toDegrees(Math.atan2(this.ySpeed, this.xSpeed));
@@ -44,7 +50,6 @@ export default class Particle {
         const newAng = toDegrees(Math.atan2(this.mouseY - this.y, this.mouseX - this.x));
         this.angle = newAng - 180;
         this.setDirection(this.angle); 
-        console.log(Math.atan2(this.x - this.mouseX, this.y - this.mouseY))
     }
     slow() {
         this.xSpeed = this.xSpeed / 1.01;

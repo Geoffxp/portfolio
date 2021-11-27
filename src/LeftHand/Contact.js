@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-
 import headshot from "../icons/headshot.png";
 import headshotOutline from "../icons/TtDZdu01.svg";
 
@@ -13,12 +12,12 @@ export default function Contact({ contact }) {
     const show = () => {
         outline.current.style.opacity = 0;
         fill.current.style.opacity = 1;
-        cover.current.style.width = "250px"
+        cover.current.style.width = "250px";
     }
     const hide = () => {
         outline.current.style.opacity = 1;
         fill.current.style.opacity = 0;
-        cover.current.style.width = "0px"
+        cover.current.style.width = "0px";
     }
     function sendEmail() {
         window.location = "mailto:geoffxp@gmail.com";
@@ -36,33 +35,7 @@ export default function Contact({ contact }) {
                                 <img id="outline-image" ref={outline} style={{color: "white", border: "2px solid white"}} className="round" src={headshotOutline} alt="headshot"/>
                             </div>
                         </div>
-                        <div ref={cover} style={{position: "relative"}} style={{ marginLeft: "calc(5% + 105px)", display: "flex", alignItems: "center", width: "0px", overflow: "hidden", transition: "all 0.5s"}}>
-                            <div class="lines">
-                                <div class="up-line"></div>
-                                <div class="side-line"></div>
-                                <div class="down-line"></div>
-                            </div>
-                            <div style={{marginBottom: "8px", marginLeft: "-10px", textAlign: "right"}}>
-                                <p style={{cursor:"pointer"}} class="underline" onClick={sendEmail}>Email</p>
-                                <p style={{cursor:"pointer"}}  class="underline" onClick={() => window.open("https://github.com/Geoffxp", "_blank")}>Github</p>
-                                <p style={{cursor:"pointer"}}  class="underline" onClick={() => window.open("https://www.linkedin.com/in/geoffrey-jarman/", "_blank")}>LinkedIn</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div ref={contact} className="smol" style={{position:"relative"}}>
-                <div className="fade" style={{ position: "absolute", bottom: "-115px", left: "50px"}}>
-                    <div className="d-flex" style={{ alignItems: "center", height: "100px"}} onMouseLeave={hide}>
-                        <div id="outer">
-                            <div id="inner" className="dark d-flex flex-row" onClick={show}>
-                                <img id="fill-image" ref={fill} style={{color: "white", border: "2px solid white"}} className="round" src={headshot} alt="headshot"/>
-                            </div>
-                            <div id="inner" className="dark d-flex flex-row" onClick={show}>
-                                <img id="outline-image" ref={outline} style={{color: "white", border: "2px solid white"}} className="round" src={headshotOutline} alt="headshot"/>
-                            </div>
-                        </div>
-                        <div ref={cover} style={{position: "relative"}} style={{ marginLeft: "calc(5% + 105px)", display: "flex", alignItems: "center", width: "0px", overflow: "hidden", transition: "all 0.5s"}}>
+                        <div ref={cover} style={{ marginLeft: "calc(5% + 105px)", display: "flex", alignItems: "center", width: "0px", overflow: "hidden", transition: "all 0.5s"}}>
                             <div class="lines">
                                 <div class="up-line"></div>
                                 <div class="side-line"></div>

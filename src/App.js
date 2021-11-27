@@ -1,23 +1,30 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import LeftHand from './LeftHand/LeftHand';
 import RightHand from "./RightHand/RightHand";
 import Particle from './Particle';
 import Input from './InputHandler';
 
 function App() {
-  const about = useRef(null);
-  const projects = useRef(null);
-  const contact = useRef(null);
+  const about = useRef();
+  const projects = useRef();
+  const contact = useRef();
   
   useEffect(() => {
     const body = document.querySelector("body");
     const canvas = document.getElementById("canvas");
     
     window.addEventListener("load", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      canvas.style.position = "fixed";
-      canvas.style.backgroundColor = "transparent";
+      if (window.innerWidth > 1280) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        canvas.style.position = "fixed";
+        canvas.style.backgroundColor = "transparent";
+      } else {
+        canvas.width = document.body.scrollWidth;
+        canvas.height = document.body.scrollHeight;
+        canvas.style.position = "absolute";
+        canvas.style.backgroundColor = "transparent";
+      }
     })
     const ctx = canvas.getContext("2d");
     const guys = [];
@@ -70,7 +77,7 @@ function App() {
         <div className="text-center text-white">
           <RightHand projects={projects} contact={contact}  />
         </div>
-        <div id="outer" className="spacer"><p id="inner"className="text-white lead">Thank you</p></div>
+        <div className="spacer"><p className="text-white lead">Thank you</p></div>
       </div>
       
       

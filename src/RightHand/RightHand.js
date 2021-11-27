@@ -1,5 +1,5 @@
 import React from "react";
-import Contact from "../LeftHand/Contact";
+import ContactM from "../RightHand/ContactM";
 import ProjectGrid from "./ProjectGrid";
 
 export default function RightHand({ projects, contact }) {
@@ -18,7 +18,7 @@ export default function RightHand({ projects, contact }) {
                     <div className="liner"></div>
                 </div>
                 <ProjectGrid />
-                <Contact contact={contact} />
+                <ContactM contact={contact} />
             </div>
         </div>
         </>
