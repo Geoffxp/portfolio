@@ -42,7 +42,7 @@ export default class Particle {
     turn(rand) {
         
         const newAng = toDegrees(Math.atan2(this.mouseY - this.y, this.mouseX - this.x));
-        this.angle = -newAng;
+        this.angle = newAng - 180;
         this.setDirection(this.angle); 
         console.log(Math.atan2(this.x - this.mouseX, this.y - this.mouseY))
     }

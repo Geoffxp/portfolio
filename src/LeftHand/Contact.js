@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
-import email from "../icons/sq-email.png"
-import github from "../icons/sq-github.png";
-import linkedin from "../icons/sq-linkedin.png";
+
 import headshot from "../icons/headshot.png";
 import headshotOutline from "../icons/TtDZdu01.svg";
 
