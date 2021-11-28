@@ -5,6 +5,15 @@ import Particle from './Particle';
 import Input from './InputHandler';
 
 function App() {
+  const dot = new OffscreenCanvas(2,2)
+  const dtx = dot.getContext("2d");
+  dtx.width=2;
+  dtx.height=2;
+  dtx.fillStyle = "white"
+  dtx.beginPath();
+  dtx.arc(0,0,2,0,Math.PI*2);
+  dtx.fill();
+
   const about = useRef();
   const projects = useRef();
   const contact = useRef();
@@ -33,7 +42,7 @@ function App() {
       const randx = Math.random() * document.body.clientWidth;
       const randy = Math.random() * document.body.clientHeight;
       const randAngle = Math.random() * 360;
-      guys.push(new Particle(randx,randy,randAngle));
+      guys.push(new Particle(randx,randy,randAngle, dot));
     }
     guys.forEach(guy => new Input(guy));
     body.style.backgroundImage = `radial-gradient(at 0px 0px, rgba(0, 0, 0, 0.8), transparent`;

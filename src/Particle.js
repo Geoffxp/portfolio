@@ -8,7 +8,7 @@ function toRadians(degrees) {
 }
 
 export default class Particle {
-    constructor(x, y, angle, mouseX, mouseY) {
+    constructor(x, y, angle, img) {
         this.x = x;
         this.y = y;
         this.angle = angle;
@@ -17,16 +17,15 @@ export default class Particle {
         this.mouseX = 0;
         this.mouseY = 0;
         this.turned = false;
+        this.width = window.innerWidth;
+        this.height = this.width > 1280 ? window.innerHeight : document.body.scrollHeight;
+        this.img = img;
     }
     update() {
         const distance = Math.sqrt((this.x - this.mouseX) ** 2 + (this.y - this.mouseY) ** 2);
-        if (window.innerWidth > 1280) {
-            if (this.x > window.innerWidth || this.x < 0) this.xSpeed = -this.xSpeed;
-            if (this.y > window.innerHeight || this.y < 0) this.ySpeed = -this.ySpeed;
-        } else {
-            if (this.x > document.body.scrollWidth || this.x < 0) this.xSpeed = -this.xSpeed;
-            if (this.y > document.body.scrollHeight || this.y < 0) this.ySpeed = -this.ySpeed;
-        }
+            if (this.x > this.width || this.x < 0) this.xSpeed = -this.xSpeed;
+            if (this.y > this.height || this.y < 0) this.ySpeed = -this.ySpeed;
+        
         
         if (distance < 100) {
             this.turn(true); 
@@ -47,10 +46,7 @@ export default class Particle {
         
     }
     draw(ctx) {
-        ctx.fillStyle = "white"
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,1,0,Math.PI*2);
-        ctx.fill();
+        ctx.drawImage(this.img,0,0,2,2,this.x,this.y,2,2)
     }
     setDirection(angle, avoiding)  {
         const rand = Math.random();
