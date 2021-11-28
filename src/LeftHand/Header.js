@@ -6,15 +6,13 @@ export default function Header({ about, projects, contact }) {
         <>
         <div className="beeg">
             <div>
-                <h1 className="text-white slide-top">GeoffreyJarman</h1>
-
-                    <h3 className="pt-1 mb-4 text-white">SoftwareDeveloper</h3>
-
+                <h1 className="text-white slide-top">Hi.</h1>
             </div>
         </div>
         <div className="smol">
             <div>
-                <h1 className="text-white slide-top">Geoffrey Jarman</h1>
+                <h1 className="text-white slide-top">Hi.</h1>
+                <h3 className="text-white slide-top">I'm Geoff.</h3>
                 <Navigation about={about} projects={projects} contact={contact} />
                 <div className="d-flex slide-top-wait">
                     <div className="liner"></div>

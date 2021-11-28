@@ -28,11 +28,23 @@ export default class Particle {
             if (this.y > document.body.scrollHeight || this.y < 0) this.ySpeed = -this.ySpeed;
         }
         
-        if (distance < 100) this.turn();
+        if (distance < 100) {
+            this.turn(true); 
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+        } else if (this.xSpeed > 1 || this.xSpeed < -1 || this.ySpeed > 1 || this.ySpeed < -1) {
+            this.slow();
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+        } else {
+            this.angle = toDegrees(Math.atan2(this.ySpeed, this.xSpeed));
+            this.setDirection(this.angle);
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;
+        }
         
-        this.angle = toDegrees(Math.atan2(this.ySpeed, this.xSpeed));
-        this.x += this.xSpeed;
-        this.y += this.ySpeed;
+        
+        
     }
     draw(ctx) {
         ctx.fillStyle = "white"
@@ -40,20 +52,28 @@ export default class Particle {
         ctx.arc(this.x,this.y,1,0,Math.PI*2);
         ctx.fill();
     }
-    setDirection(angle)  {
+    setDirection(angle, avoiding)  {
+        const rand = Math.random();
         this.angle = angle;
-        this.xSpeed = 1 * Math.cos(toRadians(angle));
-        this.ySpeed = 1 * Math.sin(toRadians(angle));
-    }
-    turn(rand) {
+        if (avoiding) {
+            this.xSpeed = 3 * Math.cos(toRadians(angle));
+            this.ySpeed = 3 * Math.sin(toRadians(angle));
+        } else {
+            this.xSpeed = rand * Math.cos(toRadians(angle));
+            this.ySpeed = rand * Math.sin(toRadians(angle));
+        }
         
+    }
+    turn(avoiding) {
         const newAng = toDegrees(Math.atan2(this.mouseY - this.y, this.mouseX - this.x));
         this.angle = newAng - 180;
-        this.setDirection(this.angle); 
+        this.setDirection(this.angle, avoiding); 
     }
     slow() {
-        this.xSpeed = this.xSpeed / 1.01;
-        this.ySpeed = this.ySpeed / 1.01;
+        if (this.xSpeed > 1 || this.xSpeed < -1 || this.ySpeed > 1 || this.ySpeed < -1) {
+            this.xSpeed = this.xSpeed / 1.01;
+            this.ySpeed = this.ySpeed / 1.01;
+        }
     }
     speed() {
         this.xSpeed += 0.05;
