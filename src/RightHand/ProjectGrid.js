@@ -1,13 +1,38 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProjectGrid.css";
-import SC from "soundcloud";
 
 export default function ProjectGrid() {
-    const RSS_URL = `https://feeds.soundcloud.com/users/soundcloud:users:7235285/sounds.rss`;
-    const xml = new XMLHttpRequest();
-    xml.open("GET", RSS_URL);
-    xml.send('');
-    xml.onload = () => console.log(xml.responseXML);
+    const [XMLsongList, setXMLSongList] = useState([]);
+    useEffect(() => {
+        const RSS_URL = `https://shrouded-cove-47004.herokuapp.com/https://feeds.soundcloud.com/users/soundcloud:users:7235285/sounds.rss`;
+        const xml = new XMLHttpRequest();
+        const temp = [];
+        xml.open("GET", RSS_URL, true);
+        xml.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xml.onload = () => {
+            const songs = xml.responseXML.getElementsByTagName("item");
+            console.log(xml.responseXML);
+            for (let song of songs) {
+                const tempSong = {};
+                for (let child of song.children) {
+                    if (child.tagName === "enclosure") {
+                        tempSong["audio"] = new Audio(child.attributes.url.nodeValue);
+                    }
+                    if (child.tagName === "title" && child.innerHTML !== "Geoff Jarman") {
+                        tempSong["name"] = child.innerHTML;
+                    }
+                }
+                
+                temp.push(tempSong);
+                setXMLSongList(temp);
+            }
+        };
+        xml.onerror = function (e) {
+            console.error(xml.statusText);
+          };
+          xml.send(null);
+    }, [])
+    
 
     const play = (audio) => {
         if (audio) {
@@ -20,13 +45,7 @@ export default function ProjectGrid() {
             audio.currentTime = 0;
         }
     }
-    const songList = [
-        {
-            name: "Take It Easy With me",
-            url: "https://myteam-virid.vercel.app/",
-            audio: new Audio("https://feeds.soundcloud.com/stream/807558739-elg30f-take-it-easy-with-me.mp3")
-        },
-    ]
+
     const projectList = [
         {
             name: "myteam",
@@ -67,11 +86,11 @@ export default function ProjectGrid() {
     return (
         <>
             <div className="beeg">
-            {/* <ul style={{paddingRight:"40px", marginBottom:0}}>
+            <ul style={{paddingRight:"40px", marginBottom:0}}>
                 <li onClick={() => setCurrentList(projectList)}>DEVELOPMENT</li>
                 <p>|</p>
-                <li onClick={() => setCurrentList(songList)}>MUSIC</li>
-            </ul> */}
+                <li onClick={() => setCurrentList(XMLsongList)}>MUSIC</li>
+            </ul>
                 <div style={{ marginTop: "25px", marginRight: "0px"}}className="projects">
                     {currentList && currentList.map((project) => {
                         return (
