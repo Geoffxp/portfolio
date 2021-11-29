@@ -3,13 +3,12 @@ import "./ProjectGrid.css";
 import SC from "soundcloud";
 
 export default function ProjectGrid() {
-    const RSS_URL = `https://cors-anywhere.herokuapp.com/http://feeds.soundcloud.com/users/soundcloud:users:7235285/sounds.rss`;
+    const RSS_URL = `https://feeds.soundcloud.com/users/soundcloud:users:7235285/sounds.rss`;
     const xml = new XMLHttpRequest();
     xml.open("GET", RSS_URL);
     xml.send('');
-    const func = async () => {
-        console.log(xml.responseXML);
-    } 
+    xml.onload = () => console.log(xml.responseXML);
+
     const play = (audio) => {
         if (audio) {
             audio.play();
