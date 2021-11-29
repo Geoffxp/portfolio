@@ -57,3 +57,17 @@
     transition: all 0.5s;
     left:100px;
 }
+
+.borderForImg {
+    padding: 5px;
+    filter: grayscale(100%);
+    width: 100px;
+    position:absolute;
+    bottom: 5%;
+    left:5%;
+    width: 100px;
+    height: 100px;
+    border: none;
+    border-radius: 50%;
+    border-bottom: 2px solid white;
+}
