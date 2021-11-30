@@ -21,6 +21,9 @@ export default function ProjectGrid() {
                     if (child.tagName === "title" && child.innerHTML !== "Geoff Jarman") {
                         tempSong["name"] = child.innerHTML;
                     }
+                    if (child.tagName === "link") {
+                        tempSong["url"] = child.innerHTML;
+                    }
                 }
                 
                 temp.push(tempSong);
@@ -45,7 +48,13 @@ export default function ProjectGrid() {
             audio.currentTime = 0;
         }
     }
-
+    const follow = (project) => {
+        if (project.audio) {
+            project.audio.pause();
+            project.audio.currentTime = 0;
+        }
+        window.open(`${project.url}`, "_blank")
+    }
     const projectList = [
         {
             name: "myteam",
@@ -97,7 +106,7 @@ export default function ProjectGrid() {
                             <div key={project.name} id="outer" className="col-12 project-box grow mb-3"
                                 onMouseOver={() => play(project.audio)}
                                 onMouseLeave={() => stop(project.audio)}
-                                onClick={()=> window.open(`${project.url}`, "_blank")}>
+                                onClick={() => follow(project)}>
                                 <div id="inner" style={{position:"relative"}}>
                                     <h3 className="pb-4">{project.name}</h3>
                                     <p>{project.description}</p>
