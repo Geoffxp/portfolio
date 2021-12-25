@@ -4,17 +4,27 @@ import RightHand from "./RightHand/RightHand";
 import Particle from './Particle';
 import Input from './InputHandler';
 
+const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+const isFirefox = typeof InstallTrigger !== 'undefined';
+
 function App() {
   const [XMLsongList, setXMLSongList] = useState([]);
 
-  const dot = new OffscreenCanvas(2,2)
-  const dtx = dot.getContext("2d");
-  dtx.width=2;
-  dtx.height=2;
-  dtx.fillStyle = "white"
-  dtx.beginPath();
-  dtx.arc(0,0,2,0,Math.PI*2);
-  dtx.fill();
+  let dot;
+  if(!isFirefox && !isSafari) {
+    dot = new OffscreenCanvas(2,2);
+    const dtx = dot.getContext("2d");
+    dtx.width=2;
+    dtx.height=2;
+    dtx.fillStyle = "white"
+    dtx.beginPath();
+    dtx.arc(0,0,2,0,Math.PI*2);
+    dtx.fill();
+  } else {
+    console.log('canvas not supported');
+  }
+  
+  
 
   const about = useRef();
   const projects = useRef();
@@ -63,7 +73,7 @@ function App() {
       const x = e.clientX;
       const y = e.clientY;
       
-      body.style.backgroundImage = `radial-gradient(at ${x}px ${y}px, rgba(${x / window.screen.width * 255}, ${y / window.screen.width * 255}, ${y / window.screen.width *5}, 0.8), transparent`;
+      if (!isFirefox) body.style.backgroundImage = `radial-gradient(at ${x}px ${y}px, rgba(${x / window.screen.width * 255}, ${y / window.screen.width * 255}, ${y / window.screen.width *5}, 0.8), transparent`;
     });
 
     const RSS_URL = `https://shrouded-cove-47004.herokuapp.com/https://feeds.soundcloud.com/users/soundcloud:users:7235285/sounds.rss`;

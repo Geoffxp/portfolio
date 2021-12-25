@@ -47,7 +47,8 @@ export default class Particle {
         
     }
     draw(ctx) {
-        ctx.drawImage(this.img,0,0,2,2,this.x,this.y,2,2)
+        if (this.img) ctx.drawImage(this.img,0,0,2,2,this.x,this.y,2,2)
+        
     }
     setDirection(angle, avoiding)  {
         this.angle = angle;
