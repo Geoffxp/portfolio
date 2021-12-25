@@ -1,42 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./ProjectGrid.css";
 
-export default function ProjectGrid() {
-    const [XMLsongList, setXMLSongList] = useState([]);
-    useEffect(() => {
-        const RSS_URL = `https://shrouded-cove-47004.herokuapp.com/https://feeds.soundcloud.com/users/soundcloud:users:7235285/sounds.rss`;
-        const xml = new XMLHttpRequest();
-        const temp = [];
-        xml.open("GET", RSS_URL, true);
-        xml.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-        xml.onload = () => {
-            const songs = xml.responseXML.getElementsByTagName("item");
-            console.log(xml.responseXML);
-            for (let song of songs) {
-                const tempSong = {};
-                for (let child of song.children) {
-                    if (child.tagName === "enclosure") {
-                        tempSong["audio"] = new Audio(child.attributes.url.nodeValue);
-                    }
-                    if (child.tagName === "title" && child.innerHTML !== "Geoff Jarman") {
-                        tempSong["name"] = child.innerHTML;
-                    }
-                    if (child.tagName === "link") {
-                        tempSong["url"] = child.innerHTML;
-                    }
-                }
-                
-                temp.push(tempSong);
-                setXMLSongList(temp);
-            }
-        };
-        xml.onerror = function (e) {
-            console.error(xml.statusText);
-          };
-          xml.send(null);
-    }, [])
-    
-
+export default function ProjectGrid({ songs }) {
     const play = (audio) => {
         if (audio) {
             audio.play();
@@ -98,7 +63,7 @@ export default function ProjectGrid() {
             <ul style={{paddingRight:"40px", marginBottom:0}}>
                 <li onClick={() => setCurrentList(projectList)}>DEVELOPMENT</li>
                 <p>|</p>
-                <li onClick={() => setCurrentList(XMLsongList)}>MUSIC</li>
+                <li onClick={() => setCurrentList(songs)}>MUSIC</li>
             </ul>
                 <div style={{ marginTop: "25px", marginRight: "0px"}}className="projects">
                     {currentList && currentList.map((project) => {
