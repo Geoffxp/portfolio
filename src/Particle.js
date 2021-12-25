@@ -20,6 +20,7 @@ export default class Particle {
         this.width = window.innerWidth;
         this.height = this.width > 1280 ? window.innerHeight : document.body.scrollHeight;
         this.img = img;
+        this.defaultSpeed = Math.random() * (0.5) + 0.5;
     }
     update() {
         const distance = Math.sqrt((this.x - this.mouseX) ** 2 + (this.y - this.mouseY) ** 2);
@@ -46,17 +47,17 @@ export default class Particle {
         
     }
     draw(ctx) {
-        ctx.drawImage(this.img,0,0,2,2,this.x,this.y,2,2)
+        if (this.img) ctx.drawImage(this.img,0,0,2,2,this.x,this.y,2,2)
+        
     }
     setDirection(angle, avoiding)  {
-        const rand = Math.random();
         this.angle = angle;
         if (avoiding) {
             this.xSpeed = 3 * Math.cos(toRadians(angle));
             this.ySpeed = 3 * Math.sin(toRadians(angle));
         } else {
-            this.xSpeed = rand * Math.cos(toRadians(angle));
-            this.ySpeed = rand * Math.sin(toRadians(angle));
+            this.xSpeed = this.defaultSpeed * Math.cos(toRadians(angle));
+            this.ySpeed = this.defaultSpeed * Math.sin(toRadians(angle));
         }
         
     }

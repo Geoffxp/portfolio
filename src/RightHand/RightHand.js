@@ -2,12 +2,12 @@ import React from "react";
 import ContactM from "../RightHand/ContactM";
 import ProjectGrid from "./ProjectGrid";
 
-export default function RightHand({ projects, contact }) {
+export default function RightHand({ projects, contact, songs }) {
     return (
         <>
         <div className="beeg">
             <div className="slide-top-text">
-                <ProjectGrid />
+                <ProjectGrid songs={songs} />
             </div>
         </div>
         <div className="smol" >

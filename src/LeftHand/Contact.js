@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import headshot from "../icons/headshot.png";
 import headshotOutline from "../icons/TtDZdu01.svg";
 
@@ -9,6 +9,8 @@ export default function Contact({ contact }) {
     const cover = useRef();
     const outline = useRef();
     const fill = useRef();
+    const border = useRef();
+
     const show = () => {
         outline.current.style.opacity = 0;
         fill.current.style.opacity = 1;
@@ -22,6 +24,27 @@ export default function Contact({ contact }) {
     function sendEmail() {
         window.location = "mailto:geoffxp@gmail.com";
     }
+    let i = 0;
+    let reverse = false;
+    useEffect(() => {
+        const ease = (x) => {
+            return x*x;
+        }
+        setInterval(() => {
+            if (i < 15.49 && !reverse) {
+                const spin = ease(i) * 1.5;
+                border.current.style.transform = `rotate(${spin}deg)`
+                i+=0.025;
+            } else {
+                reverse = true;
+                const spin = i - (ease(i) * 1.5);
+                border.current.style.transform = `rotate(${spin}deg)`
+                i-=0.025;
+                if (i <= 0) reverse = false;
+            }    
+        }, 1)
+    }, [])
+    
     return (
         <div className="mt-4">
             <div className="beeg">
@@ -32,7 +55,8 @@ export default function Contact({ contact }) {
                                 <img id="fill-image" ref={fill} style={{color: "white", border: "2px solid white"}} className="round" src={headshot} alt="headshot"/>
                             </div>
                             <div id="inner" className="dark d-flex flex-row" onMouseEnter={show}>
-                                <img id="outline-image" ref={outline} style={{color: "white", border: "2px solid white"}} className="round" src={headshotOutline} alt="headshot"/>
+                                <div ref={border} class="borderForImg">&nbsp;</div>
+                                <img id="outline-image" ref={outline} style={{color: "white", border: "none"}} className="round" src={headshotOutline} alt="headshot"/>
                             </div>
                         </div>
                         <div ref={cover} style={{ marginLeft: "calc(5% + 105px)", display: "flex", alignItems: "center", width: "0px", overflow: "hidden", transition: "all 0.5s"}}>

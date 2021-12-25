@@ -35,9 +35,38 @@ a {
     width: 100%;
     height: 300px;
     background-color: transparent;
-
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(2px);
+}
+.myteam {
+  filter: brightness(0.7) !important;
+  position:absolute;
+  height:100px;
+  width:100px;
+  top:0;
+  left:0;
+  object-fit: cover;
+  filter:none;
+  z-index: 5;
+  object-position: top center;
+  transition: object-position 15s ease 1s, opacity 1s;
+  opacity: 0;
+  pointer-events: none;
+}
+.brickbreak {
+  filter: brightness(0.5) !important;
+  position:fixed;
+  height:100vh;
+  width:100vw;
+  top:0;
+  left:0;
+  object-fit: cover;
+  filter:none;
+  z-index: -2;
+  object-position: top center;
+  transition: object-position 1s ease 1s, opacity 1s;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .grow { 
@@ -59,5 +88,6 @@ a {
   @media (max-width: 1280px) {
       .project-box {
           height: 285px;
+          backdrop-filter: none;
       }
   }

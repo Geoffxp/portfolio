@@ -5,6 +5,7 @@ export default function About() {
             <div className="beeg">
                 <div className="d-flex">
                     <div className="slide-top-text">
+                    <p style={{ fontSize: "1.15rem"}}className="lead">I'm Geoff Jarman.</p>
                         <p style={{ fontSize: "1.15rem"}}className="lead">I'm a Full Stack Web Dev living in Austin, Texas.</p>
                         <p style={{ fontSize: "1.15rem"}}className="lead">I currently work at electrIQ Marketing!</p>
                         <p style={{ fontSize: "1.15rem"}}className="lead">I use React / Next / Express / PostGres / Knex / liquid / Java</p>

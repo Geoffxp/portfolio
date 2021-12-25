@@ -1,18 +1,30 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import LeftHand from './LeftHand/LeftHand';
 import RightHand from "./RightHand/RightHand";
 import Particle from './Particle';
 import Input from './InputHandler';
 
+const isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+const isFirefox = typeof InstallTrigger !== 'undefined';
+
 function App() {
-  const dot = new OffscreenCanvas(2,2)
-  const dtx = dot.getContext("2d");
-  dtx.width=2;
-  dtx.height=2;
-  dtx.fillStyle = "white"
-  dtx.beginPath();
-  dtx.arc(0,0,2,0,Math.PI*2);
-  dtx.fill();
+  const [XMLsongList, setXMLSongList] = useState([]);
+
+  let dot;
+  if(!isFirefox && !isSafari) {
+    dot = new OffscreenCanvas(2,2);
+    const dtx = dot.getContext("2d");
+    dtx.width=2;
+    dtx.height=2;
+    dtx.fillStyle = "white"
+    dtx.beginPath();
+    dtx.arc(0,0,2,0,Math.PI*2);
+    dtx.fill();
+  } else {
+    console.log('canvas not supported');
+  }
+  
+  
 
   const about = useRef();
   const projects = useRef();
@@ -22,7 +34,6 @@ function App() {
     const body = document.querySelector("body");
     const canvas = document.getElementById("canvas");
     
-    window.addEventListener("load", () => {
       if (window.innerWidth > 1280) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -34,7 +45,6 @@ function App() {
         canvas.style.position = "absolute";
         canvas.style.backgroundColor = "transparent";
       }
-    })
     const ctx = canvas.getContext("2d");
     const guys = [];
     const limit = window.innerWidth > 1280 ? 3000 : 500;
@@ -63,9 +73,41 @@ function App() {
       const x = e.clientX;
       const y = e.clientY;
       
-      body.style.backgroundImage = `radial-gradient(at ${x}px ${y}px, rgba(${x / window.screen.width * 255}, ${y / window.screen.width * 255}, ${y / window.screen.width *5}, 0.8), transparent`;
-    })
+      if (!isFirefox) body.style.backgroundImage = `radial-gradient(at ${x}px ${y}px, rgba(${x / window.screen.width * 255}, ${y / window.screen.width * 255}, ${y / window.screen.width *5}, 0.8), transparent`;
+    });
+
+    const RSS_URL = `https://shrouded-cove-47004.herokuapp.com/https://feeds.soundcloud.com/users/soundcloud:users:7235285/sounds.rss`;
+        const xml = new XMLHttpRequest();
+        const temp = [];
+        xml.open("GET", RSS_URL, true);
+        xml.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+        xml.onload = () => {
+            const songs = xml.responseXML.getElementsByTagName("item");
+            for (let song of songs) {
+                const tempSong = {};
+                for (let child of song.children) {
+                    if (child.tagName === "enclosure") {
+                        tempSong["audio"] = new Audio(child.attributes.url.nodeValue);
+                    }
+                    if (child.tagName === "title" && child.innerHTML !== "Geoff Jarman") {
+                        tempSong["name"] = child.innerHTML;
+                    }
+                    if (child.tagName === "link") {
+                        tempSong["url"] = child.innerHTML;
+                    }
+                }
+                
+                temp.push(tempSong);
+                setXMLSongList(temp);
+            }
+        };
+        xml.onerror = function (e) {
+            console.error(xml.statusText);
+          };
+          xml.send(null);
   }, [])
+
+
   
   
   return (
@@ -76,7 +118,7 @@ function App() {
             <LeftHand />
           </div>
           <div className="col-6 text-center text-white">
-            <RightHand />
+            <RightHand songs={XMLsongList} />
           </div>
         </div>
       </div>
