@@ -73,7 +73,7 @@ function App() {
       const x = e.clientX;
       const y = e.clientY;
       
-      if (!isFirefox) body.style.backgroundImage = `radial-gradient(at ${x}px ${y}px, rgba(${x / window.screen.width * 255}, ${y / window.screen.width * 255}, ${y / window.screen.width *5}, 0.8), transparent`;
+      if (!isFirefox && window.innerWidth >= 769) body.style.backgroundImage = `radial-gradient(at ${x}px ${y}px, rgba(${x / window.screen.width * 255}, ${y / window.screen.width * 255}, ${y / window.screen.width *5}, 0.8), transparent`;
     });
 
     const RSS_URL = `https://shrouded-cove-47004.herokuapp.com/https://feeds.soundcloud.com/users/soundcloud:users:7235285/sounds.rss`;
