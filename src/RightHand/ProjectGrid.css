@@ -34,6 +34,7 @@ a {
     cursor: pointer;
     width: 100%;
     height: 300px;
+    padding: 5%;
     background-color: transparent;
     background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(2px);
@@ -87,7 +88,11 @@ a {
 
   @media (max-width: 1280px) {
       .project-box {
-          height: 285px;
+          height: fit-content;
           backdrop-filter: none;
+      }
+      .project-box h3 {
+        padding-bottom: 0 !important;
+        margin-bottom: 24px !important;
       }
   }

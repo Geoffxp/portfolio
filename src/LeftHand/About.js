@@ -14,7 +14,7 @@ export default function About() {
                 </div>
             </div>
             <div className="smol">
-                <div className="d-flex">
+                <div className="d-flex" style={{ justifyContent: "center"}}>
                     <div className="slide-top-text">
                         <p style={{ fontSize: "1.15rem"}}className="lead">I'm a Full Stack Web Dev living in Austin, Texas.</p>
                         <p style={{ fontSize: "1.15rem"}}className="lead">I currently work at electrIQ Marketing!</p>
